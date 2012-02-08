@@ -5,8 +5,8 @@ xdistutils - useful distutils extensions
 ======================================================================
 
 :Authors: Ralf Schmitt <ralf@systemexit.de>
-:Version: 0.1.0
-:Date:    2012-01-31
+:Version: 0.2.0
+:Date:    2012-02-08
 :Download: http://pypi.python.org/pypi/xdistutils
 :Code: https://github.com/schmir/xdistutils
 
@@ -58,4 +58,18 @@ previous commands::
 	366596      354053  96% dist/gevent-1.0dev-py2.7-linux-x86_64.egg
 	366596      354053  96%
 
+The bdist_msi_fixed command
+========================================
+bdist_msi is used on windows in order to create a .msi
+installler. It's part of standard distutils. Though a bug_ in distutils
+makes it impossible to upload those .msi files to the python package
+index with the upload command. bdist_msi_fixed provides a workaround::
+
+  > python setup.py bdist_msi_fixed
+  running bdist_msi_fixed
+  running bdist_msi
+  ...
+  > python setup.py bdist_msi_fixed upload
+
 .. _advancecomp: http://advancemame.sourceforge.net/comp-readme.html
+.. _bug: http://bugs.python.org/issue13719
